@@ -17,10 +17,10 @@ class Solution:
                 list1 = list1.next
             tail = tail.next
             
-        if list1 == None:
+        if list2:
             tail.next = list2
 
-        if list2 == None:
+        if list1:
             tail.next = list1
             
             
