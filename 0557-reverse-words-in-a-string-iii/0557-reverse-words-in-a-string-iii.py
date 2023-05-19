@@ -2,7 +2,6 @@ class Solution:
     def reverseWords(self, s: str) -> str:
         l = 0
         k = 0
-        ans = 0
         s = list(s)
         while k < len(s):
             if s[k] == " ":
