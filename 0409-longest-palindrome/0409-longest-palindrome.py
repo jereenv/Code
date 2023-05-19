@@ -1,8 +1,14 @@
 class Solution:
     def longestPalindrome(self, s):
-        ans = 0
-        for v in collections.Counter(s).itervalues():
-            ans += v / 2 * 2
-            if ans % 2 == 0 and v % 2 == 1:
-                ans += 1
-        return ans
+        dic = {}
+        for i in s:
+            dic[i] = 1 + dic.get(i,0)
+        
+        count = 0
+        m = 0
+        for i in dic:
+            count += dic[i]
+            if dic[i] % 2 != 0:
+                count -= 1
+                m = 1
+        return count + m
