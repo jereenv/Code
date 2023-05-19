@@ -10,5 +10,7 @@ class Solution:
             count += dic[i]
             if dic[i] % 2 != 0:
                 count -= 1
-                m = 1
-        return count + m
+                if m == 0:
+                    m = 1
+                    count += 1
+        return count
