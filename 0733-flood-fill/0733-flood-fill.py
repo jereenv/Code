@@ -5,15 +5,16 @@ class Solution:
         maxC = len(image[0])
         srC = image[sr][sc]
 
-        def dfs(r, c):
-            if r < 0 or r >= maxR or c < 0 or c >= maxC or image[r][c] != srC or image[r][c] == color:
+        def dfs(r,c):
+            if srC == color:
                 return
-
-            image[r][c] = color
-            dfs(r+1, c)
-            dfs(r-1, c)
-            dfs(r, c-1)
-            dfs(r, c+1)
+            
+            if r >= 0 and r < maxR and c >= 0 and c < maxC and image[r][c] == srC :
+                image[r][c] = color
+                dfs(r+1,c)
+                dfs(r-1,c)
+                dfs(r,c-1)
+                dfs(r,c+1)
         dfs(sr,sc)
         return image
             
