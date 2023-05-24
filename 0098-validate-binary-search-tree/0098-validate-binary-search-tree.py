@@ -7,6 +7,19 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
+
+
+
+
+
+
+
+
+
+
+
+
+        
         m1 = -2**31 - 1
         m2 = 2**31 + 1
         
