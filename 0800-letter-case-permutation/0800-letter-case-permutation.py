@@ -2,6 +2,15 @@ class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
         ans = []
 
+
+
+
+
+
+
+
+
+
         def permutation(s1, i):
             if i < len(s):
                 if s[i].isalpha():
