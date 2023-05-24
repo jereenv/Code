@@ -10,7 +10,6 @@ class Solution:
                 else:
                     permutation(s1 + s[i].upper(), i + 1)
             else:
-                print(s1)
                 ans.append(s1)
         
         permutation("",0)
