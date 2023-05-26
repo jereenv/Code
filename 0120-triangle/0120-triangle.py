@@ -25,19 +25,30 @@ class Solution:
 
 # Top Down approach
 
-        vis = {}
-        n = len(triangle) - 1
-        def minCost(row, ind):
+#         vis = {}
+#         n = len(triangle) - 1
+#         def minCost(row, ind):
             
-            if ind >= len(triangle[row]):
-                return float('inf')
+#             if ind >= len(triangle[row]):
+#                 return float('inf')
             
-            if row == n:
-                return triangle[row][ind]
+#             if row == n:
+#                 return triangle[row][ind]
             
-            if (row, ind) not in vis:
-                vis[(row, ind)] = triangle[row][ind] + min(minCost(row + 1, ind), minCost(row + 1, ind + 1))
-            return vis[(row, ind)]
+#             if (row, ind) not in vis:
+#                 vis[(row, ind)] = triangle[row][ind] + min(minCost(row + 1, ind), minCost(row + 1, ind + 1))
+#             return vis[(row, ind)]
         
-        return minCost(0,0)
+#         return minCost(0,0)
+
+# Recursive Approach
+
+        dp = [0] * (len(triangle) + 1)
+        
+        for row in triangle[::-1]:
+            for j in range(len(row)):
+                dp[j] = row[j] + min(dp[j], dp[j + 1])
+        
+        return dp[0]
+                
             
