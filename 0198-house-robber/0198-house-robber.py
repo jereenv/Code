@@ -10,7 +10,6 @@ class Solution:
 
             if i not in vis:
                 vis[i] = nums[i] + max(dp(i-2), dp(i-3))
-            print(vis,i)
             return vis[i]
         
         nums.append(0)
