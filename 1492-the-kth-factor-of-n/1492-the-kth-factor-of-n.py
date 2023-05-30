@@ -7,6 +7,7 @@ class Solution:
                 f1 += [i]
                 f2 += [n//i]
         
+        
         if f1[-1] == f2[-1]:
             f2.pop()
         
