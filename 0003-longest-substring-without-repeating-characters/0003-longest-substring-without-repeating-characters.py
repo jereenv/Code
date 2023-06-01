@@ -7,7 +7,7 @@ class Solution:
             while s[r] in charSet:
                 charSet.remove(s[l])
                 l += 1
-            ans = max(r - l + 1, ans)
             charSet.add(s[r])
+            ans = max(r - l + 1, ans)
         return ans
         
