@@ -9,34 +9,18 @@ class Solution:
         Do not return anything, modify head in-place instead.
         """
         
-        slow = head
-        fast = head
-        
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-
-        
-        secondH = slow.next
-        slow.next = None
-        prev = None
-        
-        while secondH:
-            temp = secondH.next
-            secondH.next = prev
-            prev = secondH
-            secondH = temp
-            
-        firstH = head
-        secondH = prev
-        
-        while secondH:
-            temp1 = firstH.next
-            temp2 = secondH.next
-            firstH.next = secondH
-            secondH.next = temp1
-            firstH = temp1
-            secondH = temp2
-        
-        
-        
+        if not head:
+            return
+        stack=[]
+        node=head
+        while node:
+            stack.append(node)
+            node=node.next
+        node=head
+        for i in range(len(stack)//2):
+            n=stack.pop()
+            t=node.next
+            node.next=n
+            n.next=t
+            node=t
+        node.next=None   
