@@ -3,19 +3,29 @@ class Solution:
         
         result = 0
         
-        left_max = list(h)
-        for i in range(1,len(h)):
-            left_max[i] = max(left_max[i], left_max[i - 1])
-        
-        right_max = list(h)
-        for i in reversed(range(len(h) - 1)):
-            right_max[i] = max(right_max[i], right_max[i+1])        
-        
+        left_max = 0
+        left_res = []
         for idx, h1 in enumerate(h):
-            
-            min_h = min(left_max[idx], right_max[idx])
-            result += max(min_h - h1, 0)
+            if h1 >= left_max:
+                left_max = h1
+                left_res.append(0)
+            else:
+                left_res.append(left_max - h1)
         
-        return result
+        right_max = 0
+        right_res = []
+        for i in reversed(range(len(h))):
+            if h[i] >= right_max:
+                right_max = h[i]
+                right_res.append(0)
+            else:
+                right_res.append(right_max - h[i])
+        
+        s = 0
+        
+        for i in range(len(h)):
+            s += min(left_res[i], right_res[len(h) - i - 1])
+        
+        return s
                 
         
