@@ -1,21 +1,13 @@
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
-        
-        r = len(digits) - 1
-        carry = (digits[r] + 1) // 10
-        digits[r] = (digits[r] + 1) % 10
-        r -= 1
-        while carry > 0 and r >= 0:
-            
-            addition = digits[r] + carry
-            digits[r] = addition % 10
-            carry = addition // 10
-
-            r -= 1
-        
-        if carry > 0:
+    def plusOne(self, digits):
+        length = len(digits) - 1
+        while digits[length] == 9:
+            digits[length] = 0
+            length -= 1
+        if(length < 0):
             digits = [1] + digits
+        else:
+            digits[length] += 1
         return digits
-            
-            
+
         
