@@ -10,7 +10,7 @@ class Node:
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         
-        linkedMap = {}
+        linkedMap = {None : None}
         
         temp = head
         while temp:
@@ -21,13 +21,10 @@ class Solution:
         temp = head
         while temp:
             node = linkedMap[temp]
-            if temp.next:
-                node.next = linkedMap[temp.next]
-            if temp.random:
-                node.random = linkedMap[temp.random]
+            node.next = linkedMap[temp.next]
+            node.random = linkedMap[temp.random]
             temp = temp.next
         
-        return linkedMap[head] if head else None
-        
+        return linkedMap[head]
         
         
