@@ -8,6 +8,7 @@ class Solution:
         
         def merge(i):
             if i + 1 < len(lists):
+                new = []
                 dummy = ListNode()
                 l1 = lists[i]
                 l2 = lists[i+1]
