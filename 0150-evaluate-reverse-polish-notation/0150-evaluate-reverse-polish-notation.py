@@ -15,11 +15,11 @@ class Solution:
                 elif token == "*":
                     stack.append(first * second)
                 else:
-                    val = first / second
-                    if val < 0:
-                        val = math.ceil(val)
-                    else:
-                        val = math.floor(val)
+                    val = int(first / second)
+                    # if val < 0:
+                    #     val = math.ceil(val)
+                    # else:
+                    #     val = math.floor(val)
                     stack.append(val)
             else:
                 stack.append(int(token))
