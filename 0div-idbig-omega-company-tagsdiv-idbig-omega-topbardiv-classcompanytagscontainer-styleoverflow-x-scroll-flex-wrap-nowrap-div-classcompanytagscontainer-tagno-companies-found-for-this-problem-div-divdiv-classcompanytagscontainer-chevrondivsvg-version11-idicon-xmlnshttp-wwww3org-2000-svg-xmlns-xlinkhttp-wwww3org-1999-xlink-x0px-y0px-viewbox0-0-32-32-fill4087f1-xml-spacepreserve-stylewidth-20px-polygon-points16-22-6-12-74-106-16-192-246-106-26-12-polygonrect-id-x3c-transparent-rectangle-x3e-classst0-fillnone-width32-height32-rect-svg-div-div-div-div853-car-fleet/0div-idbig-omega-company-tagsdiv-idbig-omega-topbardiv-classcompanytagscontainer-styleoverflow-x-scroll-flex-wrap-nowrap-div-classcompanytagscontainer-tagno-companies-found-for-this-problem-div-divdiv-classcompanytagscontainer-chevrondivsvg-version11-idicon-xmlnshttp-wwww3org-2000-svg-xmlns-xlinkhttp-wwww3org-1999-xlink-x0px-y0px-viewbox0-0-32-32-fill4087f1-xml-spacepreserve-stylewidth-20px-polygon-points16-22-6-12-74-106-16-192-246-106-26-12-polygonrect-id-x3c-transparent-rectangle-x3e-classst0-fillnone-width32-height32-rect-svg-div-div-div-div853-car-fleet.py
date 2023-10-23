@@ -6,11 +6,12 @@ class Solution:
         
         for p,s in sorted(pair)[::-1]:
             
-            stack.append((target - p)/s)
+            time = (target - p)/s
             
-            if len(stack) >= 2 and stack[-1] <= stack[-2] :
-                stack.pop()
-
+            if stack and stack[-1] >= time:
+                pass
+            else:
+                stack.append(time)
         
         return len(stack)
                 
