@@ -3,9 +3,8 @@ class Solution:
         
         if str1 + str2 != str2 + str1:
             return ""
-        
-        k = gcd(len(str1), len(str2))
-        
-        return str1[:k]
+        else:
+            k = gcd(len(str1), len(str2))
+            return str1[:k]
             
         
