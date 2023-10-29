@@ -5,9 +5,7 @@ class Solution:
         ans = ""
         while l < m or l < n:
             if l < m:
-                ans += word1[l]
-                
-            
+                ans += word1[l]            
             if l < n:
                 ans += word2[l]
             l+= 1
