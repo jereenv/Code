@@ -4,6 +4,8 @@ class Solution:
         count = 0
         
         for i in range(bed_n):
+            if count >= n:
+                    return True
             if flowerbed[i] == 0:
                 empty_left = (i == 0) or (flowerbed[i-1] == 0)
                 empty_right = (i == bed_n - 1) or (flowerbed[i + 1] == 0)
@@ -12,8 +14,7 @@ class Solution:
                     flowerbed[i] = 1
                     count += 1
                     
-                    if count >= n:
-                        return True
+
                     
         return count >= n
         
