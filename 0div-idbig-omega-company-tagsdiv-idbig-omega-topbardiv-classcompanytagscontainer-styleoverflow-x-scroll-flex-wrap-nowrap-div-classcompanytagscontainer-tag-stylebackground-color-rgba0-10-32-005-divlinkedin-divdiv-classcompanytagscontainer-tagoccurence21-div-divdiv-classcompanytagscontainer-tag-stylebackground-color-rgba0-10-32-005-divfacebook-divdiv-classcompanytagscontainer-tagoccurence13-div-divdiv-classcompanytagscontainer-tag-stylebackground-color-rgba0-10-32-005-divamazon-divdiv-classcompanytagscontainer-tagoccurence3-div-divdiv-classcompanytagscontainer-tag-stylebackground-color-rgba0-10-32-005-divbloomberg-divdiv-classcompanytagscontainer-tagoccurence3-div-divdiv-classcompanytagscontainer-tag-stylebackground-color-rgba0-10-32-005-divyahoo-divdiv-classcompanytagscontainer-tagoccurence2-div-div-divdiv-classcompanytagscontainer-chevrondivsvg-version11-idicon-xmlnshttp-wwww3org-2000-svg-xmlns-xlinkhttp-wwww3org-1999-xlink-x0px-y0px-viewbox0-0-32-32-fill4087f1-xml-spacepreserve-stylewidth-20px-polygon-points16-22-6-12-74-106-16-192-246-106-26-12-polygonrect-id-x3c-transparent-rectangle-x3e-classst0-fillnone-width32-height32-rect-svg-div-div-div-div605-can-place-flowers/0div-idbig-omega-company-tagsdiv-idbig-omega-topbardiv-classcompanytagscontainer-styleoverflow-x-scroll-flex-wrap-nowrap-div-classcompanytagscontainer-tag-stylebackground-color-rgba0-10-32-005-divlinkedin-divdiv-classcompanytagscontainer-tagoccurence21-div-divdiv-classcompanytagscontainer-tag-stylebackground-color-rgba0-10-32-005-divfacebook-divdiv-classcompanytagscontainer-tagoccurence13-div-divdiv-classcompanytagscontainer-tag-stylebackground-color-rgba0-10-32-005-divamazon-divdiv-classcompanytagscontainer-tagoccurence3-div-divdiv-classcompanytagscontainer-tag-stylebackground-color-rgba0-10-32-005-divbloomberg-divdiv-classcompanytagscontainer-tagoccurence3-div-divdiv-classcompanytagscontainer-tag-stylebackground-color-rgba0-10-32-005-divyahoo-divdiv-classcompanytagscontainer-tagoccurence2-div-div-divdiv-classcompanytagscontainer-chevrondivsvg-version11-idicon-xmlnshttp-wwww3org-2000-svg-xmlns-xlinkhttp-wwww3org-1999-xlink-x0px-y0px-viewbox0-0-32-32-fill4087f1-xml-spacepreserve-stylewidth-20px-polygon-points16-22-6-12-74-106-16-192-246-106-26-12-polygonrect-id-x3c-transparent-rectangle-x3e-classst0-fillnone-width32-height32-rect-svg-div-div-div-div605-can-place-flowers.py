@@ -13,8 +13,5 @@ class Solution:
                 if empty_left and empty_right:
                     flowerbed[i] = 1
                     count += 1
-                    
-
-                    
         return count >= n
         
