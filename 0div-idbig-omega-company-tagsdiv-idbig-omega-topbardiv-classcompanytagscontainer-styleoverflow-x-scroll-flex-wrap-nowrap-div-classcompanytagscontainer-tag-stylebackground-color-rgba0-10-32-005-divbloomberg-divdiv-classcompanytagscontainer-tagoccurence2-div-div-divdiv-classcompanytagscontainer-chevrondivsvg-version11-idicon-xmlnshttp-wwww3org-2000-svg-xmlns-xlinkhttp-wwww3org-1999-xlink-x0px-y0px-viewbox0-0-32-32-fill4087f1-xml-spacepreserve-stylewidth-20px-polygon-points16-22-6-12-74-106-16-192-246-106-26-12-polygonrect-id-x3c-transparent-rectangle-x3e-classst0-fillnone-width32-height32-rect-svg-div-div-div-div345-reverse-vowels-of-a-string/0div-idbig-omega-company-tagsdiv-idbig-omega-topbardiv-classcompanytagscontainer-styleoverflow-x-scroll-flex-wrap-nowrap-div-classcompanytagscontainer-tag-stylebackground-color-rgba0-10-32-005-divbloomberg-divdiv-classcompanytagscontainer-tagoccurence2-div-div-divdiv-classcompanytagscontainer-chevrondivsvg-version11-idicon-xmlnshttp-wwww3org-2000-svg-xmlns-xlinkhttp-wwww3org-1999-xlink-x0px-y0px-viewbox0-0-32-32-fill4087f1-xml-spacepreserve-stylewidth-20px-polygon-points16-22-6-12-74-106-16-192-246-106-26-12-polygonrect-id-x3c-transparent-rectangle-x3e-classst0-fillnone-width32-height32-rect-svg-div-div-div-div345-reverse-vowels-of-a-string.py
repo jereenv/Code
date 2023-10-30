@@ -1,7 +1,7 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
 
-        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        vowels = 'aeiouAEIOU'
         v_stack = []
         ans = ""
         
