@@ -1,15 +1,21 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        # Idea: Use a stack to reverse the vowel order
-        vowels = "aeiouAEIOU"
-        vowels_stack = []
-        sorted = ''
-        for char in s:
-            if char in vowels:
-                vowels_stack.append(char)
-        for char in s:
-            if char in vowels:
-                sorted += vowels_stack.pop()
+
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        v_stack = []
+        ans = ""
+        
+        for c in s:
+            if c in vowels:
+                v_stack.append(c)
+        
+        for c in s:
+            if c in vowels:
+                ans += v_stack.pop()
             else:
-                sorted +=char       
-        return sorted
+                ans += c
+        
+        return ans
+                     
+            
+        
