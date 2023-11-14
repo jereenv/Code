@@ -1,7 +1,6 @@
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
         
-        final = set()
         vis = set()
         ans = 0
         
