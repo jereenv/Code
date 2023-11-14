@@ -1,24 +1,15 @@
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
-        
-        vis = set()
+        letters = set(s)
         ans = 0
         
-        n =  len(s) - 1
-        
-        for i in range(len(s)):
-            l, r = i, n
+        for letter in letters:
+            i, j = s.index(letter), s.rindex(letter)
+            between = set()
             
-            if s[l] not in vis:
-                while l < r:
-                    if s[r] != s[l]:
-                        r -= 1
-                    else:
-                        s1 = set(list(s[l+1:r]))
-                        for letter in s1:
-                            ans += 1
-
-                        break
-                vis.add(s[l])
+            for k in range(i + 1, j):
+                between.add(s[k])
+            
+            ans += len(between)
 
         return ans
