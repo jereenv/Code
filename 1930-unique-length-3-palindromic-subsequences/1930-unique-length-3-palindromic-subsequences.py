@@ -3,6 +3,7 @@ class Solution:
         
         final = set()
         vis = set()
+        ans = 0
         
         n =  len(s) - 1
         
@@ -16,10 +17,9 @@ class Solution:
                     else:
                         s1 = set(list(s[l+1:r]))
                         for letter in s1:
-                            final.add(s[l] + letter + s[r])
+                            ans += 1
 
                         break
                 vis.add(s[l])
-            
-        #print(final)
-        return len(final)
+
+        return ans
