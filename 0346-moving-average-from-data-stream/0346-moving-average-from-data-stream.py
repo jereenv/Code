@@ -3,7 +3,6 @@ class MovingAverage:
     def __init__(self, size: int):
         self.arr = []
         self.size = size
-        self.avg = 0
         
         
 
