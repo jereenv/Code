@@ -6,20 +6,17 @@ class Solution:
         #     for i in range(nums):
         #         if a[i] == b[i]:
         
+        ans = nums[0]
         nums = set(nums)
-        n = len(nums)
-        def generate(curr):
-            if len(curr) == n:
-                if curr not in nums:
-                    return curr
-                return ""
-            
-            t = generate(curr + "0")
-            if t:
-                return t
-            return generate(curr + "1")
         
-        return generate("")
+        for i in range(len(ans)):
+            
+            t = "1" if ans[i] == "0" else "0"
+            
+            
+            temp = ans[:i] + t + ans[i+1:]
+            if temp not in nums:
+                return temp
                     
             
         
