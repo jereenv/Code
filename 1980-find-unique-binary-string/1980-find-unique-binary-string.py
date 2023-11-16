@@ -7,7 +7,7 @@ class Solution:
         #         if a[i] == b[i]:
         
         ans = nums[0]
-        # nums = set(nums)
+        nums = set(nums)
         
         for i in range(len(ans)):
             
