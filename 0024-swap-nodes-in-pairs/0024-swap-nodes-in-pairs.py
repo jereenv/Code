@@ -18,10 +18,10 @@ class Solution:
         
         while curr and next:
             
-            temp = next.next
-            curr.next = temp
-            next.next = curr
             prev.next = next
+            curr.next = next.next
+            next.next = curr
+            
             
             prev = curr
             curr = curr.next
