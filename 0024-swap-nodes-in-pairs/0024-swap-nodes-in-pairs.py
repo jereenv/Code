@@ -16,7 +16,9 @@ class Solution:
         curr = head
         next = head.next
         
-        while curr and next:
+        while curr and curr.next:
+            
+            next = curr.next
             
             prev.next = next
             curr.next = next.next
@@ -25,9 +27,7 @@ class Solution:
             
             prev = curr
             curr = curr.next
-            if not curr or not curr.next:
-                break
-            next = curr.next
+
         
         return newH.next
             
