@@ -8,10 +8,8 @@ class Solution:
                 ans = ans * 10 + num%10
                 num //=10
             return ans
-        print(nums)
         for idx, val in enumerate(nums):
             nums[idx] = val - rev(val)
-        print(nums)
         
         freq = {}
         count = 0
