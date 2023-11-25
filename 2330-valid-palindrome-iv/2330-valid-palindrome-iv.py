@@ -9,5 +9,8 @@ class Solution:
             l += 1
             r -= 1
         
-        return l > r and c <= 2
+        if l > r and c <= 2:
+            return True
+        else:
+            return False
         
