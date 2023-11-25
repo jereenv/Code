@@ -7,13 +7,13 @@ class Solution:
         lsum = 0
         
         for idx in range(n):
-            temp1 = rsum - (n - idx)*nums[idx]
-            temp2 = idx*nums[idx] - lsum
+            
+            ans.append(rsum - (n - idx)*nums[idx] + idx*nums[idx] - lsum)
             
             rsum -= nums[idx]
             lsum += nums[idx]
             
-            ans.append(temp1 + temp2)
+            
 
         
         return ans
