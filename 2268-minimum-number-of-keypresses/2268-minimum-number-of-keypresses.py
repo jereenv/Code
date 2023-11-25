@@ -7,7 +7,6 @@ class Solution:
             freq[i] += 1
         
         ans = 0
-        ctr = 1
         
         arr = []
         for i in freq:
