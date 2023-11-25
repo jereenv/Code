@@ -1,18 +1,26 @@
 class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
-        def check(arr):
-            arr.sort()
-            diff = arr[1] - arr[0]
+        
+        def check(nums):
             
-            for i in range(2, len(arr)):
-                if arr[i] - arr[i - 1] != diff:
+
+            start = min(nums)
+            end = max(nums)
+
+            diff = (end - start)/(len(nums) - 1)
+
+            if diff != int(diff):
+                return False
+            nums = set(nums)
+            curr = start + diff
+            while curr < end:
+                if curr not in nums:
                     return False
-                
+                curr += diff
             return True
         
-        ans = []
-        for i in range(len(l)):
-            arr = nums[l[i] : r[i] + 1]
-            ans.append(check(arr))
         
+        ans = []
+        for idx in range(len(l)):
+            ans.append(check(nums[l[idx]: r[idx] + 1]))
         return ans
