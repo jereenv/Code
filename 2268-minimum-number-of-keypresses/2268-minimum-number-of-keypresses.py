@@ -14,7 +14,6 @@ class Solution:
             arr.append(freq[i])
         
         arr.sort(reverse = True)
-        print(arr)
         
         for idx, val in enumerate(arr):
             ans += val * math.ceil((idx + 1)/9)
