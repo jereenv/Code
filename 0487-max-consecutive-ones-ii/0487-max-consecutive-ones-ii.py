@@ -11,7 +11,6 @@ class Solution:
                 n2.append(0)
         else:
             n2.append(temp)
-        print(n2, nums)
         ans = 0
         
         if len(n2) > 1:
