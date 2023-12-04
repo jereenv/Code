@@ -11,17 +11,15 @@ class Solution:
             if not node:
                 return True, 0
             
-            v1, left_h = dfs(node.left)
-            v2, right_h = dfs(node.right)
-            if not(v1 and v2):
-                return False, 0
+            is_lB, h1 = dfs(node.left)
+            is_rB, h2 = dfs(node.right)
             
-            isB = abs(left_h - right_h) <= 1
+            is_B = abs(h1 - h2) <= 1
             
-            return isB, 1 + max(left_h, right_h)
-        
+            h = max(h1, h2) + 1
+            
+            return is_B and is_lB and is_rB, h
         return dfs(root)[0]
-                
             
             
         
