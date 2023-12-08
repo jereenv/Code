@@ -1,42 +1,34 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        start = 9999999
+        end = -1
         
-        lower_bound = self.findBound(nums, target, True)
-        if (lower_bound == -1):
+        l, r = 0, len(nums) - 1
+        
+        while l <= r:
+            m = (l + r)//2
+            if nums[m] == target:
+                start = min(m, start)
+                r = m - 1
+            elif nums[m] > target:
+                r = m - 1
+            else:
+                l = m + 1
+        
+        l, r = start, len(nums) - 1
+        
+        if start == 9999999:
             return [-1, -1]
         
-        upper_bound = self.findBound(nums, target, False)
-        
-        return [lower_bound, upper_bound]
-        
-    def findBound(self, nums: List[int], target: int, isFirst: bool) -> int:
-        
-        N = len(nums)
-        begin, end = 0, N - 1
-        while begin <= end:
-            mid = int((begin + end) / 2)    
-            
-            if nums[mid] == target:
-                
-                if isFirst:
-                    # This means we found our lower bound.
-                    if mid == begin or nums[mid - 1] < target:
-                        return mid
-
-                    # Search on the left side for the bound.
-                    end = mid - 1
-                else:
-                    
-                    # This means we found our upper bound.
-                    if mid == end or nums[mid + 1] > target:
-                        return mid
-                    
-                    # Search on the right side for the bound.
-                    begin = mid + 1
-            
-            elif nums[mid] > target:
-                end = mid - 1
+        while l <= r:
+            m = (l + r)// 2
+            if nums[m] > target:
+                r = m - 1
             else:
-                begin = mid + 1
+                if nums[m] == target:
+                    end = max(m, end)
+                l = m + 1
+        return [start, end]
+            
         
-        return -1
+        
