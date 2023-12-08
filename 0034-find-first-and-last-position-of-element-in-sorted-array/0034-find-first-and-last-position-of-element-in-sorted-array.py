@@ -7,10 +7,9 @@ class Solution:
         
         while l <= r:
             m = (l + r)//2
-            if nums[m] == target:
-                start = min(m, start)
-                r = m - 1
-            elif nums[m] > target:
+            if nums[m] >= target:
+                if nums[m] == target:
+                    start = min(m, start)
                 r = m - 1
             else:
                 l = m + 1
