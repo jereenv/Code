@@ -1,6 +1,6 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        start = float('inf')
+        start = 9999999
         end = -1
         
         l, r = 0, len(nums) - 1
@@ -16,7 +16,7 @@ class Solution:
         
         l, r = start, len(nums) - 1
         
-        if start == float('inf'):
+        if start == 9999999:
             return [-1, -1]
         
         while l <= r:
