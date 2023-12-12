@@ -1,8 +1,12 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
+            return s
         arr = [[] for _ in range(numRows)]
         flag = 0
         ctr = 0
+        
+
         for i in s:
             print(flag, ctr)
             if flag == 0:
