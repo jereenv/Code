@@ -17,9 +17,8 @@ class Solution:
                 if ctr <= -1:
                     ctr += 2
                     flag = 0
-        print(arr)
-        ans = ["".join(i) for i in arr]
-        return "".join(ans)
+
+        return "".join(["".join(i) for i in arr])
                     
             
             
