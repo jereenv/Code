@@ -1,57 +1,39 @@
 class Solution:
-    def myAtoi(self, s: str) -> int:
+    def myAtoi(self, input: str) -> int:
+        sign = 1 
+        result = 0
+        index = 0
+        n = len(input)
         
-        digits = set()
-        for i in range(10):
-            digits.add(str(i))
+        INT_MAX = pow(2,31) - 1 
+        INT_MIN = -pow(2,31)
         
-        symbols = set()
-        symbols.add("-")
-        symbols.add("+")
+        # Discard all spaces from the beginning of the input string.
+        while index < n and input[index] == ' ':
+            index += 1
         
-        ans = []
-        ctr = 0
-        for i in s:
-
-            if i in digits:
-                if not ans:
-                    ans.append([])
-                ans[ctr].append(i)
-            elif i in symbols:
-                if not ans:
-                    ans.append([])
-                ans.append([])
-                ctr += 1
-                ans[ctr].append(i)
-            elif i == " " and not ans:
-                pass
-            else:
-                break
+        # sign = +1, if it's positive number, otherwise sign = -1. 
+        if index < n and input[index] == '+':
+            sign = 1
+            index += 1
+        elif index < n and input[index] == '-':
+            sign = -1
+            index += 1
         
-        for idx, val in enumerate(ans):
-            if not val:
-                ans.pop(idx)
+        # Traverse next digits of input and stop if it is not a digit. 
+        # End of string is also non-digit character.
+        while index < n and input[index].isdigit():
+            digit = int(input[index])
+            
+            # Check overflow and underflow conditions. 
+            if ((result > INT_MAX // 10) or (result == INT_MAX // 10 and digit > INT_MAX % 10)):
+                # If integer overflowed return 2^31-1, otherwise if underflowed return -2^31.    
+                return INT_MAX if sign == 1 else INT_MIN
+            
+            # Append current digit to the result.
+            result = 10 * result + digit
+            index += 1
         
-        temp = 1
-        t2 = 0
-        print(ans)
-        for i in ans:
-            if i:
-                if i[0] == "-":
-                    temp = -1
-                    i.pop(0)
-                    # t2 += 1
-                elif i[0] == "+":
-                    i.pop(0)
-                if not i or i[0] not in digits:
-                    return 0
-                
-                res = int("".join(i[t2:]))*temp
-                if (2 ** 31) * (-1) < res < (2 ** 31):
-                    return res
-                if res <= (2 ** 31) * (-1):
-                    return (2 ** 31) * (-1) 
-                else:
-                    return (2 ** 31) - 1
-        return 0
-        
+        # We have formed a valid number without any overflow/underflow.
+        # Return it after multiplying it with its sign.
+        return sign * result
