@@ -1,10 +1,8 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
-        roman = []
-        value_to_roman = [["M",1000],["CM",900],["D",500],["CD",400],["C",100],["XC",90],["L",50],["XL",40],["X",10],["IX",9],["V",5],["IV",4],["I",1]]
-        
-        for i in value_to_roman:
-            count, num = divmod(num, i[1])
-            roman.append(i[0] * count)
-        return "".join(roman)
-        
+        thousands = ["", "M", "MM", "MMM"]
+        hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+        tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+        ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+        return (thousands[num // 1000] + hundreds[num % 1000 // 100] 
+               + tens[num % 100 // 10] + ones[num % 10])
