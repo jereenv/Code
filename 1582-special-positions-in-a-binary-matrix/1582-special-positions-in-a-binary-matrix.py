@@ -14,7 +14,8 @@ class Solution:
                     if r != row and mat[r][col] == 1:
                         good = False
                         break
-                
+                if not good:
+                    break
                 for c in range(n):
                     if c != col and mat[row][c] == 1:
                         good = False
