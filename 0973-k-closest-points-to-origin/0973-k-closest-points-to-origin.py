@@ -8,10 +8,9 @@ class Solution:
             distances.append([(x)**2 + (y)**2,[x,y]])
         
         distances.sort()
-        ans = []
         for idx in range(k):
-            ans.append(distances[idx][1])
-        return ans
+            points[idx] = distances[idx][1]
+        return points[:k]
         
         
         
