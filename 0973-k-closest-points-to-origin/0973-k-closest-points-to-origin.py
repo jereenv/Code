@@ -3,7 +3,7 @@ class Solution:
         
         distances = []
         def getEuclidean(x1,x2,y1,y2):
-            return ((x1-x2)**2 + (y1-y2)**2)**(1/2)
+            return ((x1-x2)**2 + (y1-y2)**2)
         
         for x,y in points:
             distances.append([getEuclidean(0,x,0,y),[x,y]])
