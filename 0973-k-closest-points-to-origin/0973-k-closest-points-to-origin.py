@@ -4,12 +4,13 @@ class Solution:
         distances = []
         
         
-        for x,y in points:
-            distances.append([(x)**2 + (y)**2,[x,y]])
+        for idx, val in enumerate(points):
+            x,y = val
+            points[idx] =[(x)**2 + (y)**2,[x,y]]
         
-        distances.sort()
+        points.sort()
         for idx in range(k):
-            points[idx] = distances[idx][1]
+            points[idx] = points[idx][1]
         return points[:k]
         
         
