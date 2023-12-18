@@ -16,7 +16,6 @@ class Solution:
             else:
                 second_smallest = min(second_smallest, num)
             
-        print(second_smallest, smallest, second_biggest, biggest)
         
         return biggest*second_biggest - smallest*second_smallest
         
