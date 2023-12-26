@@ -1,24 +1,24 @@
 class Solution:
-
-    @lru_cache(maxsize=None)
-    def recursiveWithMemo(self, index, s) -> int:
-        # If you reach the end of the string
-        # Return 1 for success.
-        if index == len(s):
-            return 1
-
-        # If the string starts with a zero, it can't be decoded
-        if s[index] == '0':
-            return 0
-
-        if index == len(s)-1:
-            return 1
-        
-        answer = self.recursiveWithMemo(index + 1, s)
-        if int(s[index : index + 2]) <= 26:
-            answer += self.recursiveWithMemo(index + 2, s)
-
-        return answer
-
     def numDecodings(self, s: str) -> int:
-        return self.recursiveWithMemo(0, s)
+        
+        
+        dp = {len(s) : 1}
+        
+        def dfs(idx):
+            if idx in dp:
+                return dp[idx]
+            
+            if s[idx] == "0":
+                return 0
+            
+            res = dfs(idx + 1)
+            if (idx + 1 < len(s) and (s[idx] == "1" or s[idx] == "2" and s[idx + 1] in "0123456")):
+                res += dfs(idx + 2)
+            
+            dp[idx] = res
+            return res
+            
+            
+        
+        return dfs(0)
+                
