@@ -5,11 +5,7 @@ class Solution:
             if int(bank[idx]) == 0:
                 bank.pop(idx)
             else:
-                count = 0
-                for i in bank[idx]:
-                    if i == "1":
-                        count += 1
-                bank[idx] = count
+                bank[idx] = bank[idx].count("1")
                 idx += 1
         
         idx = 0
