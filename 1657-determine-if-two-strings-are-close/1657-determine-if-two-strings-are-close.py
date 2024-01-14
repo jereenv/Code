@@ -1,6 +1,9 @@
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
         
+        if set(word1) != set(word2):
+            return False
+        
         freq1 = [0]*26
         freq2 = [0]*26
         
@@ -10,7 +13,7 @@ class Solution:
         for i in word2:
             freq2[ord(i) - ord('a')] += 1
         
-        return sorted(freq1) == sorted(freq2) and set(word1) == set(word2)
+        return sorted(freq1) == sorted(freq2)
         
 #         if len(word1) != len(word2) or set(word1) != set(word2):
 #             return False
