@@ -14,8 +14,7 @@ class Solution:
         
         for i in range(1, len(strs)):
             prev = self.compare(prev, strs[i])
-            if prev == -1:
-                return ""
+            
         
         
         
