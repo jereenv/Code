@@ -3,14 +3,13 @@ class Solution:
         n = len(nums)
         
         s = n * (n + 1)//2
-        print(n, len(nums), nums, s)
         dic = defaultdict(bool)
         dup = -1
         for i in nums:
             if dic[i]:
                 dup = i
+                break
             dic[i] = True
-        print(s, sum(nums), dup)
         return [dup, s - sum(nums) + dup]
             
             
