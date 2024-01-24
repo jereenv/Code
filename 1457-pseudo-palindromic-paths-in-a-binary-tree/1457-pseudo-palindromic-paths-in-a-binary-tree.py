@@ -15,7 +15,6 @@ class Solution:
                 if dic[i]%2 != 0:
                     odd += 1
                 if odd > 1:
-                    print(dic)
                     return False
             return True
         
