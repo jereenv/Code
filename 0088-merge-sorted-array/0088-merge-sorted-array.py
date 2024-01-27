@@ -17,9 +17,7 @@ class Solution:
                 nums1[idx] = nums2[n]
                 n -= 1
             idx -= 1
-                
-        else:
-            while n >= 0:
-                nums1[idx] = nums2[n]
-                idx -=1 
-                n -=1
+        while n >= 0:
+            nums1[idx] = nums2[n]
+            idx -=1 
+            n -=1
