@@ -6,7 +6,7 @@
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
         dummy = ListNode(next = head)
-        h, t = dummy, dummy
+        h = t = dummy
         curr = t.next
         
         while h.next:
