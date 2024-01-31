@@ -1,21 +1,14 @@
-class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
-        
-        vis = set()
-        keys = set()
-        
-        def dfs(room):
-            if room in vis:
-                return
-            vis.add(room)
-            
-            for key in rooms[room]:
-                dfs(key)
-        vis.add(0)
-        for room in rooms[0]:
-            dfs(room)
-        
-        return len(vis) == len(rooms)
-            
-            
-        
+class Solution(object):
+    def canVisitAllRooms(self, rooms):
+        seen = [False] * len(rooms)
+        seen[0] = True
+        stack = [0]
+        #At the beginning, we have a todo list "stack" of keys to use.
+        #'seen' represents at some point we have entered this room.
+        while stack:  #While we have keys...
+            node = stack.pop() # get the next key 'node'
+            for nei in rooms[node]: # For every key in room # 'node'...
+                if not seen[nei]: # ... that hasn't been used yet
+                    seen[nei] = True # mark that we've entered the room
+                    stack.append(nei) # add the key to the todo list
+        return all(seen) # Return true iff we've visited every room
