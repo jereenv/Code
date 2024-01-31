@@ -5,10 +5,10 @@ class Solution:
         
         stack = []
         
-        for idx, val in enumerate(temperatures):
-            while stack and val > temperatures[stack[-1]]:
+        for i in range(len(temperatures)):
+            while stack and temperatures[i] > temperatures[stack[-1]]:
                 j = stack.pop()
-                ans[j] = idx - j
-            stack.append(idx)
+                ans[j] = i - j
+            stack.append(i)
         return ans
             
