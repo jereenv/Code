@@ -9,7 +9,6 @@ class Solution:
             
             if idx not in memo:
                 temp = [max(arr[idx : idx + i]) * i + dp(idx + i) for i in range(1, min(k, n - idx) + 1)]
-                print(temp)
                 memo[idx] = max(temp)
             return memo[idx]
         
