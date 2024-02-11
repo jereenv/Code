@@ -16,10 +16,8 @@ class Solution:
 
             res = 0
 
-            mov = [-1, 0, 1]
-
-            for i in mov:
-                for j in mov:
+            for i in [-1, 0, 1]:
+                for j in [-1, 0, 1]:
                     res = max(res, dfs(r + 1, c1 + i, c2 + j))
 
             
