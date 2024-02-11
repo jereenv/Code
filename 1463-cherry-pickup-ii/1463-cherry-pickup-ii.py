@@ -13,14 +13,12 @@ class Solution:
             if r == ROW - 1:
                 return grid[r][c1] + grid[r][c2]
 
-
             res = 0
 
             for i in [-1, 0, 1]:
                 for j in [-1, 0, 1]:
                     res = max(res, dfs(r + 1, c1 + i, c2 + j))
 
-            
             return grid[r][c1] + grid[r][c2] + res 
         
         return dfs(0, 0, COL - 1)
