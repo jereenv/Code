@@ -8,7 +8,6 @@ class Solution:
         
 
         
-        @lru_cache(None)
         def dfs(r, c1, c2):
             if (r, c1, c2) not in memo:
                 
