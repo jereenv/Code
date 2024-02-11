@@ -6,6 +6,29 @@ class Solution:
         
         memo = {}
         
+#         def dfs(r, c1, c2):
+#             if (r, c1, c2) not in memo:
+                
+#                 if min(c1, c2) < 0 or max(c1, c2) >= COL or c1 == c2:
+#                     return 0
+                
+#                 if r == ROW - 1:
+#                     return grid[r][c1] + grid[r][c2]
+                
+                
+#                 res = 0
+                
+#                 mov = [-1, 0, 1]
+                
+#                 for i in mov:
+#                     for j in mov:
+#                         res = max(res, dfs(r + 1, c1 + i, c2 + j))
+                
+#                 memo[(r, c1, c2)] = grid[r][c1] + grid[r][c2] + res
+            
+#             return memo[(r, c1, c2)]
+        
+        @lru_cache(None)
         def dfs(r, c1, c2):
             if (r, c1, c2) not in memo:
                 
