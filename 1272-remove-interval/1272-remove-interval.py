@@ -3,7 +3,7 @@ class Solution:
         
         ans = []
         start, end = toBeRemoved
-        for [s1, e1] in intervals:
+        for s1, e1 in intervals:
             
             if e1 <= start:
                 ans.append([s1, e1])
