@@ -10,7 +10,7 @@ class Solution:
         que = deque()
         que.append(root)
         
-        while True:
+        while que:
             
             node = que.popleft()
             if node.right:
@@ -18,5 +18,4 @@ class Solution:
             if node.left:
                 que.append(node.left)
             
-            if not que:
-                return node.val
+        return node.val
