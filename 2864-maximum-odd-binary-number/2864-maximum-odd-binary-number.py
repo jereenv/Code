@@ -1,6 +1,8 @@
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
-        c = Counter(s)
-        c["1"] -= 1
-        return "1" * c["1"] + "0"*c["0"] + "1"
-        
+        # Get n and ones_cnt
+        n = len(s)
+        ones_cnt = s.count('1')
+
+        # Construct the resulting string
+        return '1' * (ones_cnt - 1) + '0' * (n - ones_cnt) + '1'
