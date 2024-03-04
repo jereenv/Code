@@ -23,9 +23,9 @@ class Solution:
             for col in range(COL):
                 matrix[row][col] = 0
         
-        for col in colSet:
-            makeColZero(col)
-        
-        for row in rowSet:
-            makeRowZero(row)
+        for row in range(ROW):
+            for col in range(COL):
+                if col in colSet or row in rowSet:
+                    matrix[row][col] = 0
+
         
