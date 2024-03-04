@@ -8,10 +8,7 @@ class Solution:
         ans = 0
         
         while head:
-            if head.val > head.next.val:
-                ans += 1
-            else:
-                ans -= 1
+            ans += (head.val > head.next.val) - (head.val < head.next.val)
             head = head.next.next
         return "Even" if ans > 0 else "Tie" if ans == 0 else "Odd"
         
