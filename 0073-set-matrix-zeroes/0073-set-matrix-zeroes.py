@@ -23,7 +23,6 @@ class Solution:
             for col in range(COL):
                 matrix[row][col] = 0
         
-        
         for col in colSet:
             makeColZero(col)
         
