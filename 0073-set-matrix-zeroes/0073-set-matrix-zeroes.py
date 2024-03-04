@@ -3,7 +3,8 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        colRow = set()
+        colSet = set()
+        rowSet = set()
         
         ROW = len(matrix)
         COL = len(matrix[0])
@@ -11,10 +12,10 @@ class Solution:
         for row in range(ROW):
             for col in range(COL):
                 if matrix[row][col] == 0:
-                    colRow.add((row, col))
+                    colSet.add(col)
+                    rowSet.add(row)
         
         def makeColZero(col):
-            print(col)
             for row in range(ROW):
                 matrix[row][col] = 0
         
@@ -22,8 +23,9 @@ class Solution:
             for col in range(COL):
                 matrix[row][col] = 0
         
-        for row, col in colRow:
+        for col in colSet:
             makeColZero(col)
+        
+        for row in rowSet:
             makeRowZero(row)
         
-        print(matrix)
