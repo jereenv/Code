@@ -7,15 +7,32 @@
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         
-        vis = set()
-        while headA:
-            vis.add(headA)
-            headA = headA.next
+        def getLen(node):
+            ctr = 0
+            while node:
+                ctr += 1
+                node = node.next
+            return ctr
         
-        while headB:
-            if headB in vis:
-                return headB
-            headB = headB.next
+        dif = getLen(headA) - getLen(headB)
+        
+        if dif > 0:
+            node1 = headA
+            node2 = headB
+        else:
+            node2 = headA
+            node1 = headB
+        dif = abs(dif)
+        
+        while dif > 0:
+            node1 = node1.next
+            dif -= 1
+        
+        while node1:
+            if node1 == node2:
+                return node1
+            node1 = node1.next
+            node2 = node2.next
         
  
         
