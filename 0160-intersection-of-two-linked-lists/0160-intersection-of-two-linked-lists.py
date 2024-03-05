@@ -16,13 +16,13 @@ class Solution:
 
         lenA, lenB = getLen(headA), getLen(headB)
 
-        node1, node2 = (headA, headB) if lenA > lenB else (headB, headA)
+        node1, node2 = headA, headB
 
-        dif = abs(lenA - lenB)
-        
-        while dif > 0:
-            node1 = node1.next
-            dif -= 1
+        for _ in range(abs(lenA - lenB)):
+            if lenA > lenB:
+                node1 = node1.next
+            else:
+                node2 = node2.next
         
         while node1:
             if node1 == node2:
