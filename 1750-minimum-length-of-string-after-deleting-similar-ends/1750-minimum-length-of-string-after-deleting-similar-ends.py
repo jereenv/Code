@@ -1,8 +1,6 @@
 class Solution:
     def minimumLength(self, s: str) -> int:
-        ans = len(s)
-        
-        l, r = 0, ans - 1
+        l, r = 0, len(s) - 1
         
         while l < r:
             curr = s[l]
