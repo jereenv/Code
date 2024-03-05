@@ -13,16 +13,12 @@ class Solution:
                 ctr += 1
                 node = node.next
             return ctr
-        
-        dif = getLen(headA) - getLen(headB)
-        
-        if dif > 0:
-            node1 = headA
-            node2 = headB
-        else:
-            node2 = headA
-            node1 = headB
-        dif = abs(dif)
+
+        lenA, lenB = getLen(headA), getLen(headB)
+
+        node1, node2 = (headA, headB) if lenA > lenB else (headB, headA)
+
+        dif = abs(lenA - lenB)
         
         while dif > 0:
             node1 = node1.next
