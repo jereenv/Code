@@ -8,18 +8,14 @@ class Solution:
         
         node_freq = {}
         
-        node = head
+        node = None
         
-        while node:
-            node_freq[node.val]  = 1 + node_freq.get(node.val,0)
-            node = node.next
+        while head:
+            if head.val not in node_freq:
+                node_freq[head.val] = ListNode(1, node)
+                node = node_freq[head.val]
+            else:
+                node_freq[head.val].val += 1
+            head = head.next
         
-        dummy = ListNode(next = None)
-        prev = dummy
-        for node in node_freq:
-            
-            curr = ListNode(val = node_freq[node])
-            prev.next = curr
-            prev = curr
-  
-        return dummy.next
+        return node
