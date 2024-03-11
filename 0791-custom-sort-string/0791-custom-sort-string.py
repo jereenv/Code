@@ -3,7 +3,6 @@ class Solution:
         ans = ""
         
         freq = Counter(s)
-        print(freq)
         
         for i in order:
             ans += i*freq[i]
