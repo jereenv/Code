@@ -4,7 +4,6 @@ class Solution:
         
         for n in nums:
             n = abs(n)
-            
             if nums[n - 1] < 0:
                 ans.append(n)
                 
