@@ -8,7 +8,6 @@ class Solution:
             
             if nums[n - 1] < 0:
                 ans.append(n)
-            else:
-                nums[n - 1] *= -1
+            nums[n - 1] *= -1
         
         return ans
