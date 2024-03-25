@@ -1,7 +1,6 @@
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
         ans = []
-        n = len(nums)
         
         for n in nums:
             n = abs(n)
