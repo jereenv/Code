@@ -5,7 +5,7 @@ class Solution:
         n = len(nums)
         dic = {}
         
-        while l <= r and l < n and r < n:
+        while l <= r and r < n:
             dic[nums[r]] = 1 + dic.get(nums[r], 0)
             if dic[nums[r]] > k:
                 while l <= r and dic[nums[r]] > k:
