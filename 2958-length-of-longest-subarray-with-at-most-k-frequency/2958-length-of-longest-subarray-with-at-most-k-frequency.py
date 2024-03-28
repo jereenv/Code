@@ -11,7 +11,8 @@ class Solution:
                 while l <= r and dic[nums[r]] > k:
                     dic[nums[l]] -= 1
                     l += 1
-            ans = max(ans, r - l + 1)
+            else:
+                ans = max(ans, r - l + 1)
             r += 1
         
         return ans
