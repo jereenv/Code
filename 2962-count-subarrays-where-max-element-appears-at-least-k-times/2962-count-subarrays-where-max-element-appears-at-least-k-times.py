@@ -5,20 +5,22 @@ class Solution:
         n = len(nums)
         ans = 0
         
-        dic = defaultdict(int)
+        c = 0
         
         m = max(nums)
         
         while l <= r:
-            if dic[m] < k:
-                
+            if c < k:
                 if r >= n:
                     break
-                dic[nums[r]] += 1
+                if nums[r] == m:
+                    c += 1
                 r += 1
             else:
                 ans += n -r + 1
-                dic[nums[l]] -= 1
+                
+                if nums[l] == m:
+                    c -=1
                 l += 1
         
         return ans
