@@ -6,12 +6,9 @@ class Solution:
         ROW_MAX = len(board)
         COL_MAX = len(board[0])
         
-        ans = [0]
-        
         def dp(vis, curr, i, j):
             if curr == len(word):
-                ans[0] = True
-                return
+                return True
             
             if i >= ROW_MAX or i < 0:
                 return
@@ -27,23 +24,18 @@ class Solution:
             
             vis.add((i, j))
             
-            dp(vis, curr + 1, i + 1, j)
-            dp(vis, curr + 1, i - 1, j)
-            dp(vis, curr + 1, i, j - 1)
-            dp(vis, curr + 1, i, j + 1)
+            res = (dp(vis, curr + 1, i + 1, j)) or dp(vis, curr + 1, i - 1, j) or (dp(vis, curr + 1, i, j - 1)) or (dp(vis, curr + 1, i, j + 1))
             
             vis.remove((i, j))
             
+            return res
         
         for r in range(ROW_MAX):
             for c in range(COL_MAX):
-                if not ans[0]:
-                    dp(set(), 0, r, c)
-                else:
-                    return ans[0]
+                if dp(set(), 0, r, c):
+                    return True
         
-        return ans[0]
-                
+        return False
         
             
             
