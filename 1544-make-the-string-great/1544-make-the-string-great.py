@@ -5,7 +5,7 @@ class Solution:
         n = len(w)
         i = 1
         while i < len(w):
-            if s and s[-1].upper() == w[i].upper() and s[-1] != w[i]:
+            if s and abs(ord(s[-1]) - ord(w[i])) == 32:
                 s.pop()
             else:
                 s.append(w[i])
