@@ -15,7 +15,7 @@ class Solution:
             if nums[idx] == 0:
                 return False
             
-            for i in range(idx + 1, idx + nums[idx] + 1):
+            for i in range(idx + nums[idx], idx, -1 ):
                 if dp(i):
                     return True
                 else:
