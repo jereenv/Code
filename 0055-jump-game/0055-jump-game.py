@@ -1,13 +1,29 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
+        
+        
         n = len(nums)
-        reachable = [False] * n
-        reachable[0] = True  # Starting position is reachable
-
-        for i in range(n):
-            if reachable[i]:
-                # Explore all reachable distances from current index
-                for j in range(i + 1, min(i + nums[i] + 1, n)):
-                    reachable[j] = True
-
-        return reachable[n - 1]  # Check if last position is reachable
+        notVis = [-1] * n
+        
+        def dp(idx):
+            if idx >= n - 1:
+                return True
+            
+            if notVis[idx] == 0:
+                return False
+            
+            if nums[idx] == 0:
+                return False
+            
+            for i in range(idx + 1, idx + nums[idx] + 1):
+                if dp(i):
+                    return True
+                else:
+                    notVis[idx] = 0
+            
+            return False
+        
+        return dp(0)
+                
+        
+        
