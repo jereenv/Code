@@ -16,7 +16,6 @@ class Solution:
             else:
                 st.appendleft(st.pop())
                 n -= 1
-        print(st, sd)
         return len(st)
                 
         
