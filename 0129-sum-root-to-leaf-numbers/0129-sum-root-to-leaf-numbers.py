@@ -1,7 +1,5 @@
 class Solution:
     def sumNumbers(self, root: TreeNode):
-        ans = [0]
-        
         
         def dp(node, curr):
             if not node:
