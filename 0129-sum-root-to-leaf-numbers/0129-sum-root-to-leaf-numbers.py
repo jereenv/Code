@@ -6,15 +6,11 @@ class Solution:
                 return 0
             
             curr = 10 * curr + node.val
-            left = dp(node.left, curr)
-            right = dp(node.right, curr)
             
-            if not left and not right:
+            if not node.left and not node.right:
                 return curr
             
-        
-            
-            return left + right
+            return dp(node.left, curr) + dp(node.right, curr)
     
         return dp(root, 0)
             
