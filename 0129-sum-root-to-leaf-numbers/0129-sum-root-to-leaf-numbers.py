@@ -4,19 +4,20 @@ class Solution:
         
         
         def dp(node, curr):
-            if node:
-                curr = 10 * curr + node.val
-                
-                if not node.left and not node.right:
-                    ans[0] += curr
-                    return
-                dp(node.left, curr)
-                dp(node.right, curr)
+            if not node:
+                return 0
             
-
+            curr = 10 * curr + node.val
+            left = dp(node.left, curr)
+            right = dp(node.right, curr)
+            
+            if not left and not right:
+                return curr
+            
         
-        dp(root, 0)
-        
-        return ans[0]
+            
+            return left + right
+    
+        return dp(root, 0)
             
         
