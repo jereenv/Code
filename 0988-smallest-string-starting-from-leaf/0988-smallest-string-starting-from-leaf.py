@@ -9,11 +9,6 @@ class Solution:
         
         res = ["z"*85000]
         
-        # def dfs(curr)
-        
-        #a = 97
-        #
-        
         def dfs(curr, node):
             if not node:
                 res[0] = min(curr, res[0])
