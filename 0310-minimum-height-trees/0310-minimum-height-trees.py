@@ -1,39 +1,43 @@
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-
-        # edge cases
-        if n <= 2:
-            return [i for i in range(n)]
-
-        # Build the graph with the adjacency list
-        neighbors = [set() for i in range(n)]
-        for start, end in edges:
-            neighbors[start].add(end)
-            neighbors[end].add(start)
-
-        # Initialize the first layer of leaves
-        leaves = []
-        for i in range(n):
-            if len(neighbors[i]) == 1:
-                leaves.append(i)
-
-        # Trim the leaves until reaching the centroids
-        remaining_nodes = n
-        while remaining_nodes > 2:
-            remaining_nodes -= len(leaves)
-            new_leaves = []
-            # remove the current leaves along with the edges
-            while leaves:
-                leaf = leaves.pop()
-                # the only neighbor left for the leaf node
-                neighbor = neighbors[leaf].pop()
-                # remove the only edge left
-                neighbors[neighbor].remove(leaf)
-                if len(neighbors[neighbor]) == 1:
-                    new_leaves.append(neighbor)
-
-            # prepare for the next round
-            leaves = new_leaves
-
-        # The remaining nodes are the centroids of the graph
-        return leaves
+        
+        adj = defaultdict(list)
+        for n1, n2 in edges:
+            adj[n1].append(n2)
+            adj[n2].append(n1)
+        
+        edge_cnt = {}
+        leaves = deque()
+        for src, neighbours in adj.items():
+            if len(neighbours) == 1:
+                leaves.append(src)
+            
+            edge_cnt[src] = len(neighbours)
+        
+        
+        while leaves:
+            if n <= 2:
+                return list(leaves)
+            
+            for i in range(len(leaves)):
+                node = leaves.popleft()
+                n -= 1
+                for nei in adj[node]:
+                    edge_cnt[nei] -= 1
+                    
+                    if edge_cnt[nei] == 1:
+                        leaves.append(nei)
+        
+        return [0]
+        
+        
+        
+        
+        
+#         if n <= 2:
+#             return edges
+        
+#         while len(edges) > 2:
+            
+#             leaf = []
+            
