@@ -1,24 +1,19 @@
 class Solution:
     def tribonacci(self, n: int) -> int:
-
         
-        if n == 0:
-            return 0
-        if n == 1:
-            return 1
-        if n == 2:
-            return 1
+        memo = {}
         
-                
-        first = 0
-        second = 1
-        third = 1
-        
-        for _ in range(3, n):
-            temp = third
+        def dfs(n):
             
-            third = first + second + third
-            first, second = second, temp
-        
-        return first + second + third
+            if n not in memo:
+
+                if n <= 0:
+                    return 0
+                if n in {1,2}:
+                    return 1
+
+                memo[n] = dfs(n - 1) + dfs(n - 2) + dfs(n - 3)
+            return memo[n]
+        return dfs(n)
+                
         
