@@ -7,10 +7,8 @@ class Solution:
         
         if n == 0:
             return first
-        if n == 1:
+        if n == 1 or n == 2:
             return second
-        if n == 2:
-            return third
         
         for _ in range(3, n):
             temp = third
