@@ -15,11 +15,11 @@ class Solution:
         
         idx = -2
         
-        print([node.val for node in stack])
+        #print([node.val for node in stack])
         while idx*(-1) <= len(stack):
             if stack[idx].val < stack[idx + 1].val:
-                #stack.pop(idx)
-                print(stack.pop(idx).val)
+                stack.pop(idx)
+                #print(stack.pop(idx).val)
             else:
                 idx -= 1
         
