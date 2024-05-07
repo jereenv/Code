@@ -7,12 +7,12 @@ class Solution:
     def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         def dfs(node):
-            if node == None:
+            if not node:
                 return 0
             
             node.val = 2 * node.val + dfs(node.next)
             
-            if node.val >= 10:
+            if node.val > 9:
                 node.val -= 10
                 return 1
             
