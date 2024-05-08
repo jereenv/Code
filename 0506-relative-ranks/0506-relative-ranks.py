@@ -14,7 +14,7 @@ class Solution:
         for idx in reversed(inverse):
             if idx != -1:
                 if curr < 4:
-                    ans[idx] = medals.pop()
+                    ans[idx] = medals[-curr]
                 else:
                     ans[idx] = str(curr)
                 curr += 1
