@@ -1,7 +1,11 @@
 class Solution:
     def findRelativeRanks(self, score: List[int]) -> List[str]:
         
-        inverse = [-1 for i in range(10**6)]
+        m = 0
+        for i in score:
+            m = max(i, m)
+        
+        inverse = [-1 for i in range(m + 1)]
         
         for idx, val in enumerate(score):
             inverse[val] = idx
