@@ -1,18 +1,30 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        result = []
-        self.dfs(s, [], result)
-        return result
-
-    def isPalindrome(self, s: str) -> bool:
-        return s == s[::-1]
-
-    def dfs(self, s: str, path: List[str], result: List[List[str]]):
-        if not s:
-            result.append(path)
-            return
-        for i in range(1, len(s) + 1):
-            if self.isPalindrome(s[:i]):
-                # add current substring in the currentList
-                self.dfs(s[i:], path + [s[:i]], result)
-                # backtrack and remove the current substring from currentList
+        
+        res= []
+        part = []
+        
+        n = len(s)
+        
+        def dfs(idx):
+            if idx >= n:
+                res.append(part.copy())
+            
+            for j in range(idx, n):
+                if self.isPali(s, idx, j):
+                    part.append(s[idx: j + 1])
+                    dfs(j + 1)
+                    part.pop()
+                    
+        dfs(0)
+        return res
+    
+    def isPali(self, s, l, r):
+        while l < r:
+            if s[l] != s[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
+    
+        
