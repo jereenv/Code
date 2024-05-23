@@ -22,9 +22,4 @@ class Solution:
             
         backtrack(0, dic)
         return self.ans
-    
-    
-    
-    def isBeautiful(self, arr, k):
-        pass
         
