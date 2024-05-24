@@ -18,8 +18,10 @@ class Solution:
                 res.append(combi)
                 return
             
-            if curr + candidates[idx] <= target:
-                backtrack(idx, curr + candidates[idx], combi + [candidates[idx]])
+            if curr + candidates[idx] > target:
+                return
+            
+            backtrack(idx, curr + candidates[idx], combi + [candidates[idx]])
             
             backtrack(idx + 1, curr, combi)
         
