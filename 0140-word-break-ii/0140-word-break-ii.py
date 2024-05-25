@@ -8,7 +8,6 @@ class Solution:
         res = []
         
         def backtrack(start, end, ans):
-            print(start, end, ans)
             if end >= n:
                 if s[start: end] in wordSet:
                     if ans:
