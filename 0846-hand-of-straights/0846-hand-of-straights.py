@@ -10,9 +10,7 @@ class Solution:
         keys = list(card_dic.keys())
         
         keys.sort()
-        
-        print(keys)
-        
+                
         for key in keys:
             curr = card_dic[key]
             
