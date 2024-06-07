@@ -27,7 +27,6 @@ class Solution:
                 ans.append(s1[l: idx])
             
             l = idx + 1
-        print(ans)
         return " ".join(ans)
             
         
