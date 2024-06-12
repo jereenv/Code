@@ -3,4 +3,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums.sort()
+        
+        
+        n = [0]*3
+        
+        for i in nums:
+            n[i] += 1
+        
+        idx = 0
+        print(n)
+        for i, val in enumerate(n):
+            for _ in range(val):
+                nums[idx] = i
+                idx += 1
