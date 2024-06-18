@@ -15,10 +15,6 @@ class Solution:
             dp[idx][1] = curr
         
         
-        print(dp)
-        print(worker)
-        
-        
         def binarySearch(w):
             l, r = 0, n[0] - 1
             
@@ -41,7 +37,6 @@ class Solution:
             
             
             curr = binarySearch(w)
-            #print(w, curr)
             p += curr
         
         return p
