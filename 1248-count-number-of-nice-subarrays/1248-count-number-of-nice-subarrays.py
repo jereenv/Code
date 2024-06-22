@@ -1,21 +1,17 @@
 class Solution:
-    def numberOfSubarrays(self, nums: List[int], k: int) -> int:
-        odd_indices = deque()
-        subarrays = 0
-        last_popped = -1
-        initial_gap = -1
+    def numberOfSubarrays(self, nums, k):
+        return self.atMost(nums, k) - self.atMost(nums, k - 1)
 
-        for i in range(len(nums)):
-            # If element is odd, append its index to the deque.
-            if nums[i] % 2 == 1:
-                odd_indices.append(i)
-            # If the number of odd numbers exceeds k, remove the first odd index.
-            if len(odd_indices) > k:
-                last_popped = odd_indices.popleft()
-            # If there are exactly k odd numbers, add the number of even numbers
-            # in the beginning of the subarray to the result.
-            if len(odd_indices) == k:
-                initial_gap = odd_indices[0] - last_popped
-                subarrays += initial_gap
-
-        return subarrays
+    def atMost(self, nums, k):
+        count = 0
+        res = 0
+        left = 0
+        for right in range(len(nums)):
+            if nums[right] % 2 == 1:
+                k -= 1
+            while k < 0:
+                if nums[left] % 2 == 1:
+                    k += 1
+                left += 1
+            res += right - left + 1
+        return res
