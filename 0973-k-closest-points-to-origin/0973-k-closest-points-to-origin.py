@@ -1,13 +1,24 @@
+from heapq import heappop, heappush, heapify
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         
-        for idx, val in enumerate(points):
-            points[idx] =[(val[0])**2 + (val[1])**2,[val[0], val[1]]]
+        pd = defaultdict(list)
+        d = []
+        for x, y in points:
+            dis = (x**2 + y**2)**0.5
+            d.append(dis)
+            pd[dis].append([x, y])
         
-        points.sort()
-        for idx in range(k):
-            points[idx] = points[idx][1]
-        return points[:k]
+        heapify(d)
+        ans = []
+        
+        while k:
+            t = pd[heappop(d)]
+            ans.extend(t)
+            k -= len(t)
+        return ans
+        
         
         
         
