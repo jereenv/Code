@@ -11,9 +11,7 @@ class Solution:
    
         k = 8
         ans = 0
-        print(freq_arr)
         for idx, val in enumerate(freq_arr):
             freq, char = val
-            print(((idx // k) + 1), char)
             ans += ((idx // k) + 1) * freq
         return ans
