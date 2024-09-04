@@ -2,11 +2,11 @@ class Solution:
     def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
         
         nums.sort()
-        ans = [nums[i:i + 3] for i in range(0, len(nums), 3)]
+        nums = [nums[i:i + 3] for i in range(0, len(nums), 3)]
         
-        for x, y, z in ans:
-            if y - x > k or z - x > k:
+        for x, y, z in nums:
+            if z - x > k:
                 return []
-        return ans
+        return nums
         
         
