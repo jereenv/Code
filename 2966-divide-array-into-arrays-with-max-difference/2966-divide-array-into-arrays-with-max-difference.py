@@ -4,10 +4,9 @@ class Solution:
         nums.sort()
         ans = [nums[i:i + 3] for i in range(0, len(nums), 3)]
         
-        for arr in ans:
-            if abs(arr[0] - arr[1]) > k or abs(arr[1] - arr[2]) > k or abs(arr[2] - arr[0]) > k:
+        for x, y, z in ans:
+            if y - x > k or z - x > k:
                 return []
         return ans
-            
         
         
