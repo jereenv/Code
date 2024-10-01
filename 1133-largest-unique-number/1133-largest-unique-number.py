@@ -8,13 +8,12 @@ class Solution:
         while i >= 0:
             if nums[i - 1] != nums[i]:
                 return nums[i]
-            else:
-                t = i
-                while t >= 0 and nums[t] == nums[i]:
-                    t -= 1
-                
-                i = t + 1
-            i -= 1
+
+            t = i
+            while t >= 0 and nums[t] == nums[i]:
+                t -= 1
+
+            i = t
         return -1
             
                 
