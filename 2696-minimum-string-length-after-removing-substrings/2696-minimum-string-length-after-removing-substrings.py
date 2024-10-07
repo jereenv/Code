@@ -9,8 +9,7 @@ class Solution:
         
         while idx < n:
             if stack and ((s[idx] == "D" and stack[-1] == "C") or (s[idx] == "B" and stack[-1] == "A")):
-                    stack.pop()
-                    
+                stack.pop()    
             else:
                 stack.append(s[idx])
             idx +=1
