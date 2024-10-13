@@ -1,33 +1,19 @@
 class Solution:
     def maximumCoins(self, heroes: List[int], monsters: List[int], coins: List[int]) -> List[int]:
         
-        monsters = [[monster, coin] for monster, coin in zip(monsters, coins)]
+        monsters = sorted(zip(monsters, coins))
         
-        monsters.sort()
-        
-        
-        ans = []
-        
-        curr_idx = 0
+        s_heroes = sorted((power, idx) for idx, power in enumerate(heroes))
         n = len(monsters)
         
-        s_heroes = sorted(heroes)
+        ans = [0] * len(heroes) 
+        curr_idx, reward = 0, 0  
         
-        for idx, power in enumerate(s_heroes):
-            
-            reward = 0 if idx == 0 else ans[-1]
-            while curr_idx < n:
-                if monsters[curr_idx][0] > power:
-                    break
+        for power, original_idx in s_heroes:
+            while curr_idx < n and monsters[curr_idx][0] <= power:
                 reward += monsters[curr_idx][1]
                 curr_idx += 1
-            
-                
-                
-                
-            ans.append(reward)
+            ans[original_idx] = reward
         
-        freq = {s_heroes[i]: ans[i] for i in range(len(heroes))}
-        
-        return [freq[i] for i in heroes]
+        return ans
         
