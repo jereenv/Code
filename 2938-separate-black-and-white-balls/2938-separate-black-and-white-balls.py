@@ -1,14 +1,17 @@
 class Solution:
     def minimumSteps(self, s: str) -> int:
         ans = 0
-        ones = 0
-        for i in s:
-            
-            if i == "0":
-                ans += ones
-            else:
-                ones += 1
+        
+        next_pos = 0
+        
+        for idx, val in enumerate(s):
+            if val == "0":
+                ans += idx - next_pos
+                
+                next_pos += 1
+        
         return ans
+        
             
         
         
