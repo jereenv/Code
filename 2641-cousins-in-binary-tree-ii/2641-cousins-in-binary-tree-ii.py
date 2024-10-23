@@ -20,9 +20,7 @@ class Solution:
                     level.append([node.right, node.left.val if node.left else 0])
         
             s = sum([x.val for x, _ in level])
-            
-            print([[x.val, _] for x, _ in level], s)
-            
+                        
             for node, cuz in level:
                 node.val = s - node.val - cuz
             
